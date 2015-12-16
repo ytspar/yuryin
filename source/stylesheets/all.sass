@@ -1,0 +1,369 @@
+@import "base/media-queries"
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video
+  margin: 0
+  padding: 0
+  border: 0
+  outline: 0
+  font-size: 62.5%
+  vertical-align: baseline
+  background: transparent
+
+body
+  line-height: 1
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section
+  display: block
+
+nav ul
+  list-style: none
+
+blockquote, q
+  quotes: none
+
+blockquote
+  &:before, &:after
+    content: ''
+    content: none
+
+q
+  &:before, &:after
+    content: ''
+    content: none
+
+a
+  margin: 0
+  padding: 0
+  font-size: 100%
+  vertical-align: baseline
+  background: transparent
+
+ins
+  background-color: #ff9
+  color: #000
+  text-decoration: none
+
+mark
+  background-color: #ff9
+  color: #000
+  font-style: italic
+  font-weight: bold
+
+del
+  text-decoration: line-through
+
+abbr[title], dfn[title]
+  border-bottom: 1px dotted
+  cursor: help
+
+table
+  border-collapse: collapse
+  border-spacing: 0
+
+hr
+  display: block
+  height: 1px
+  border: 0
+  border-top: 3px solid #000
+  margin: 1em 0
+  padding: 0
+
+input, select
+  vertical-align: middle
+
+// via https://github.com/richclark/HTML5resetCSS/blob/master/reset.css
+
+
+@function prefix($property, $prefixes: webkit moz o ms)
+  $vendor-prefixed-properties: transform background-clip background-size
+  $result: ()
+  @each $prefix in $prefixes
+    @if index($vendor-prefixed-properties, $property)
+      $property: -#{$prefix}-#{$property}
+    $result: append($result, $property)
+  @return $result
+
+@function trans-prefix($transition, $prefix: moz)
+  $prefixed: ()
+  @each $trans in $transition
+    $prop-name: nth($trans, 1)
+    $vendor-prop-name: prefix($prop-name, $prefix)
+    $prop-vals: nth($trans, 2)
+    $prefixed: append($prefixed, $vendor-prop-name $prop-vals, comma)
+  @return $prefixed
+
+=transition($values...)
+  $transitions: ()
+  @each $declaration in $values
+    $prop: nth($declaration, 1)
+    $prop-opts: ()
+    $length: length($declaration)
+    @for $i from 2 through $length
+      $prop-opts: append($prop-opts, nth($declaration, $i))
+    $trans: $prop, $prop-opts
+    $transitions: append($transitions, $trans, comma)
+  -webkit-transition: trans-prefix($transitions, webkit)
+  -moz-transition: trans-prefix($transitions, moz)
+  -o-transition: trans-prefix($transitions, o)
+  transition: $values
+
+// via http://log.vieron.net/articles/sass-mixins-for-vendor-prefixed-transitions-including-properties/
+
+=sticky-footer($footer-height, $wrapper-selector: unquote("#wrapper"), $container-selector: unquote("#container"), $footer-selector: unquote("#footer"))
+  html, body
+    height: 100%
+  body
+    margin: 0px
+    padding: 0px
+  #{$wrapper-selector}
+    min-height: 100%
+    height: auto !important
+    height: 100%
+    margin-bottom: -$footer-height
+    #{$container-selector}
+      padding: 0 0 $footer-height 0
+  #{$footer-selector}
+    height: $footer-height
+
+=font($a: none)
+  @if $a == bold
+    font-family: "HelveticaNeueBold", "HelveticaNeue-Bold", "Helvetica Neue Bold", "HelveticaNeue", "Helvetica Neue", 'TeXGyreHerosBold', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif
+    font-weight: 600
+    font-stretch: normal
+  @else if $a == medium
+    font-family: "Helvetica Neue Medium", "HelveticaNeue-Medium", "Helvetica Neue", "HelveticaNeue", "HelveticaNeueRoman", "HelveticaNeue-Roman", "Helvetica Neue Roman", 'TeXGyreHerosRegular', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif
+    font-weight: 400
+    font-stretch: normal
+  @else if $a == light
+    font-family: "HelveticaNeueLight", "HelveticaNeue-Light", "Helvetica Neue Light", "HelveticaNeue", "Helvetica Neue", 'TeXGyreHerosRegular', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif
+    font-weight: 300
+    font-stretch: normal
+  @else if $a == thin
+    font-family: "HelveticaNeueThin", "HelveticaNeue-Thin", "Helvetica Neue Thin", "HelveticaNeue", "Helvetica Neue", 'TeXGyreHerosRegular', "Arial", sans-serif
+    font-weight: 200
+    font-stretch: normal
+  @else
+    font-family: "HelveticaNeue", "Helvetica Neue", "HelveticaNeueRoman", "HelveticaNeue-Roman", "Helvetica Neue Roman", 'TeXGyreHerosRegular', "Helvetica", "Tahoma", "Geneva", "Arial", sans-serif
+    font-weight: 400
+    font-stretch: normal
+
+$georgia-font-stack: Georgia, Times, "Times New Roman", serif !default
+
+$size: 1.8rem
+$big:  2.5rem
+
+$red:  #AC071B
+$dred: #890717
+$gr:   #343434
+$lt:   #CAC8C8
+
+@mixin navigation-list
+  list-style-type: none
+  padding: 0
+  margin: 0
+  overflow: hidden
+  > li
+    display: block
+    float: left
+    &:last-child
+      margin-right: 0
+
+body
+  @include font(medium)
+  color: #000
+  font-size: $size
+
+.container
+  margin: 0 auto
+  width: 320px
+  @include iphone4(portrait)
+    width: 300px
+  @include iphone5(portrait)
+    width: 300px  
+  @include min-screen(360px)
+    width: 340px
+  @include iphone6(portrait)
+    width: 356px
+  @include iphone6-plus(portrait)
+    width: 380px  
+  @include min-screen(767px)
+    width: 600px
+  @include ipad
+    width: 800px
+
+h1
+  +font(medium)
+
+h2
+  margin: 0 0 2.5em
+  +font(bold)
+  width: 60%
+  @include iphone5(portrait)
+    width: 100%
+  @include min-screen(767px)
+    margin-bottom: 4em
+  a
+    &:before
+      height: 0.2em
+      background: $dred
+      width: 2em
+      display: block
+      content: ""
+      margin: 0 0 0.6em 0
+      @include min-screen(767px)
+        height: 0.15em
+    color: $gr
+    font-size: $size
+    @include ipad
+      margin-bottom: 3.5em
+    @include min-screen(767px)
+      font-size: $big
+
+h3
+  +font(medium)
+
+h4
+  +font(thin)
+
+p
+  font-family: $georgia-font-stack
+  font-size: $size
+  margin-bottom: 1.5em
+  line-height: 1.5em
+  @include min-screen(767px)
+    font-size: $big
+
+a, a:hover
+  color: #000
+  text-decoration: none
+  @include transition(transform 1s ease-in 1s, opacity 1s ease)
+a:hover
+  color: $dred
+
+header
+  text-transform: lowercase
+  h1
+    @include font(medium)
+    font-size: $size
+    margin-top: 0.5em
+    margin-bottom: 0.1em
+    letter-spacing: -0.2px
+    @include transition(transform 1s ease-in 1s, opacity 1s ease)
+    a:hover
+      color: $dred
+    span
+      color: $red
+      font-size: $size
+      @include min-screen(767px)
+        font-size: $big
+      &:hover
+        color: $dred
+    @include min-screen(767px)
+      font-size: $big
+  p
+    +font(medium)
+    color: $gr
+    margin: 0 0 1em 0
+    letter-spacing: -0.25px
+    font-size: $size
+    line-height: 1.3em
+    @include min-screen(767px)
+      font-size: $big
+
+nav
+  margin-bottom: 8em
+  @include min-screen(767px)
+    margin-bottom: 12em
+  ul
+    +navigation-list
+    letter-spacing: -0.5px
+  a
+    @include font(medium)
+    color: $gr
+    display: inline-block
+    background: none
+    margin-right: 1em
+    font-size: $size
+    @include min-screen(767px)
+      font-size: $big
+    //+transition(color 0.5s ease-in-out)
+    .left-arrow
+      width: 26px
+      height: 11px
+      float: left
+    svg
+      margin-right: 0.25em
+      height: inherit
+      width: inherit
+    &:hover
+      svg path
+        fill: $dred
+
+#main
+  margin-bottom: 30em
+
+.row
+  float: left
+  width: 100%
+  display: block
+
+svg.left-arrow
+  display: none
+
+.icon
+  display: inline-block
+  width: 1em
+  height: 1em
+  fill: currentColor
+
+.icon-arrow-left
+  font-size: 1.6rem
+  color: $gr
+  display: inline-block
+  position: relative
+  top: 0.15em
+  @include min-screen(767px)
+    font-size: $big - 0.5rem
+
+footer#footer
+  width: 100%
+  +sticky-footer(5em)
+  ul
+    +navigation-list
+    li
+      margin-right: 3em
+      &.email
+        width: 5em
+      &.twitter
+        width: 6em
+      &.instagram
+        width: 8em  
+      &.copyright
+        width: 14em
+      @include ipad
+        &.email, &.twitter
+          width: 10em
+        &.copyright
+          width: 23em
+      @include min-screen(767px)
+        &.email
+          width: 8em
+        &.twitter
+          width: 10em
+        &.instagram
+          width: 12em   
+        &.copyright
+          width: 21em      
+    &.bottom li
+      margin-bottom: 2em
+  p
+    +font(medium)
+    font-size: 1.6rem
+    margin-bottom: 0
+    @include ipad
+      font-size: 2.0rem
+    @include min-screen(767px)
+      font-size: 2.0rem
+    &.label
+      text-transform: lowercase
+      color: $lt

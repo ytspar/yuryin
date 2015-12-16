@@ -1,0 +1,104 @@
+!!!
+/[if lt IE 7] <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="">
+/[if IE 7] <html class="no-js lt-ie9 lt-ie8" lang="">
+/[if IE 8] <html class="no-js lt-ie9" lang="">
+/ [if gt IE 8]><!
+%html.no-js{:lang => ""}
+  / <![endif]
+%html
+  %head
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "IE=edge;chrome=1", "http-equiv" => "X-UA-Compatible"}/
+    %meta{:content => "", :name => "description"}
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
+
+    %link{:href => "apple-touch-icon.png", :rel => "apple-touch-icon"}
+
+    //%link{:href => "/stylesheets/html5boilerplate/normalize.min.css", :rel => "stylesheet"}
+    //%link{:href => "/stylesheets/html5boilerplate/main.css", :rel => "stylesheet"}
+    /[if lt IE 9]
+      <script src="javascripts/vendor/html5-3.6-respond-1.4.2.min.js"></script>
+
+    %title
+      Yury in... #{' - ' + current_article.title unless current_article.nil?}
+    = feed_tag :atom, "#{blog.options.prefix.to_s}/feed.xml", title: "Atom Feed"
+    = stylesheet_link_tag "all"
+  %body
+    .container
+      %header
+        .row
+          =link_to "/" do
+            %h1
+              Yury in
+              %span.location
+                Bangkok
+        .row
+          %p
+            A blog about important things
+        .row
+          %nav
+            %ul
+              %li
+                =link_to '/articles', :class => "articles-link" do
+                  %svg.left-arrow
+                    %symbol#icon-arrow-left{:viewBox => "0 0 1024 1024"}
+                      %title arrow-left
+                      %path.path1{:d => "M402.746 877.254l-320-320c-24.994-24.992-24.994-65.516 0-90.51l320-320c24.994-24.992 65.516-24.992 90.51 0 24.994 24.994 24.994 65.516 0 90.51l-210.746 210.746h613.49c35.346 0 64 28.654 64 64s-28.654 64-64 64h-613.49l210.746 210.746c12.496 12.496 18.744 28.876 18.744 45.254s-6.248 32.758-18.744 45.254c-24.994 24.994-65.516 24.994-90.51 0z"}
+                  //%svg{:xmlns => "http://www.w3.org/2000/svg"}
+                  //  %path{, "fill-rule" => "inherit", :fill => "#000", :viewBox => "0 0 11 23", :preserveAspectRatio => "xMinYMin meet" }
+                  %svg.icon.icon-arrow-left
+                    %use{"xlink:href" => "#icon-arrow-left"}
+                  Articles
+              %li.about
+                =link_to 'About', '/about'
+      .row
+        #main{:role => "main"}
+          = yield
+      .row
+        %footer#footer
+          %ul
+            %li.email
+              %p.label
+                Email
+              %p
+                %a{:href => "mailto:ytspar@gmail.com"}
+                  gmail
+            %li.twitter
+              %p.label
+                Twitter
+              %p
+                =link_to '@ytspar', 'https://twitter.com/ytspar'
+            %li.instagram
+              %p.label
+                Instagram
+              %p
+                =link_to '@ytspar', 'http://instagram.com/_u/ytspar'
+            %li.github
+              %p.label
+                Github
+              %p
+                =link_to 'ytspar', 'https://github.com/ytspar/'                
+          %hr
+          %ul.bottom
+            %li.copyright
+              %p
+                Copyright #{DateTime.now.strftime("%Y")}
+            %li.yurytsukerman
+              %p
+                Yury Tsukerman
+
+      //%aside
+      //  %h2 Recent Articles
+      //  %ol
+      //    - blog.articles[0...10].each do |article|
+      //      %li
+      //        = link_to article.title, article
+      //        %span= article.date.strftime('%b %e')
+      //  %h2 Tags
+      //  %ol
+      //    - blog.tags.each do |tag, articles|
+      //      %li= link_to "#{tag} (#{articles.size})", tag_path(tag)
+      //  %h2 By Year
+      //  %ol
+      //    - blog.articles.group_by {|a| a.date.year }.each do |year, articles|
+      //      %li= link_to "#{year} (#{articles.size})", blog_year_path(year)
