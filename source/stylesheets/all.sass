@@ -206,7 +206,7 @@ h2
   @include max-screen(420px)
     width: 100%
   @include min-screen(767px)
-    margin-bottom: 4em
+    margin-bottom: 4em       
   a
     &:before
       height: 0.2em
@@ -223,6 +223,8 @@ h2
       margin-bottom: 3.5em
     @include min-screen(767px)
       font-size: $big
+    @include iphone6-plus
+      font-size: $big - 0.1rem           
     @include kindlehdx
       font-size: $huge
 
@@ -239,6 +241,8 @@ p
   line-height: 1.5em
   @include min-screen(767px)
     font-size: $big
+  @include iphone6-plus
+    font-size: $big - 0.25rem 
   @include kindlehdx
     font-size: $huge
 
@@ -265,14 +269,18 @@ header
       font-size: $size
       @include min-screen(767px)
         font-size: $big
+      @include iphone6-plus
+        font-size: $big        
       @include kindlehdx
         font-size: $huge  
       &:hover
         color: $dred
     @include min-screen(767px)
       font-size: $big
+    @include iphone6-plus
+      font-size: $big      
     @include kindlehdx
-      font-size: $huge
+      font-size: $huge      
   p
     +font(medium)
     color: $gr
@@ -282,6 +290,8 @@ header
     line-height: 1.3em
     @include min-screen(767px)
       font-size: $big
+    @include iphone6-plus
+      font-size: $big           
     @include kindlehdx
       font-size: $huge
 
@@ -289,6 +299,8 @@ nav
   margin-bottom: 7.5em
   @include min-screen(767px)
     margin-bottom: 12em
+  @include iphone6-plus
+    margin-bottom: 9em    
   ul
     +navigation-list
     letter-spacing: -0.5px
@@ -303,6 +315,8 @@ nav
     font-size: $size
     @include min-screen(767px)
       font-size: $big
+    @include iphone6-plus
+      font-size: $big      
     @include kindlehdx
       font-size: $huge
     .left-arrow
@@ -373,7 +387,14 @@ footer#footer
         &.instagram
           width: 12em   
         &.copyright
-          width: 21em      
+          width: 21em
+      @include iphone6-plus   
+        &.copyright
+          width: 16em 
+        &.twitter
+          width: 8em  
+        &.instagram
+          width: 9em    
     &.bottom li
       margin-bottom: 2em
   p
@@ -384,6 +405,8 @@ footer#footer
       font-size: 2.0rem
     @include min-screen(767px)
       font-size: 2.0rem
+    @include iphone6-plus
+      font-size: 2.0rem   
     &.label
       text-transform: lowercase
       color: $lt
