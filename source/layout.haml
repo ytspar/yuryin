@@ -12,7 +12,7 @@
     %meta{:content => "", :name => "description"}
     %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
 
-    %link{:href => "apple-touch-icon.png", :rel => "apple-touch-icon"}
+    = partial "icons"
 
     /[if lt IE 9]
       <script src="javascripts/vendor/html5-3.6-respond-1.4.2.min.js"></script>
@@ -21,6 +21,7 @@
       Yury in [insert location] #{' - ' + current_article.title unless current_article.nil?}
     = feed_tag :atom, "#{blog.options.prefix.to_s}/feed.xml", title: "Atom Feed"
     = stylesheet_link_tag "all"
+
   %body
     .container
       %header
