@@ -224,7 +224,7 @@ h2
     @include min-screen(767px)
       font-size: $big
     @include iphone6-plus
-      font-size: $big - 0.1rem           
+      font-size: $size + 0.15rem         
     @include kindlehdx
       font-size: $huge
 
@@ -242,7 +242,7 @@ p
   @include min-screen(767px)
     font-size: $big
   @include iphone6-plus
-    font-size: $big - 0.25rem 
+    font-size: $size + 0.15rem
   @include kindlehdx
     font-size: $huge
 
@@ -270,7 +270,7 @@ header
       @include min-screen(767px)
         font-size: $big
       @include iphone6-plus
-        font-size: $big        
+        font-size: $size + 0.15rem      
       @include kindlehdx
         font-size: $huge  
       &:hover
@@ -278,7 +278,7 @@ header
     @include min-screen(767px)
       font-size: $big
     @include iphone6-plus
-      font-size: $big      
+      font-size: $size + 0.15rem     
     @include kindlehdx
       font-size: $huge      
   p
@@ -291,16 +291,14 @@ header
     @include min-screen(767px)
       font-size: $big
     @include iphone6-plus
-      font-size: $big           
+      font-size: $size + 0.15rem          
     @include kindlehdx
       font-size: $huge
 
 nav
   margin-bottom: 7.5em
   @include min-screen(767px)
-    margin-bottom: 12em
-  @include iphone6-plus
-    margin-bottom: 9em    
+    margin-bottom: 12em  
   ul
     +navigation-list
     letter-spacing: -0.5px
@@ -316,7 +314,7 @@ nav
     @include min-screen(767px)
       font-size: $big
     @include iphone6-plus
-      font-size: $big      
+      font-size: $size + 0.15rem     
     @include kindlehdx
       font-size: $huge
     .left-arrow
@@ -387,14 +385,7 @@ footer#footer
         &.instagram
           width: 12em   
         &.copyright
-          width: 21em
-      @include iphone6-plus   
-        &.copyright
-          width: 16em 
-        &.twitter
-          width: 8em  
-        &.instagram
-          width: 9em    
+          width: 21em  
     &.bottom li
       margin-bottom: 2em
   p
@@ -404,9 +395,7 @@ footer#footer
     @include ipad
       font-size: 2.0rem
     @include min-screen(767px)
-      font-size: 2.0rem
-    @include iphone6-plus
-      font-size: 2.0rem   
+      font-size: 2.0rem 
     &.label
       text-transform: lowercase
       color: $lt
