@@ -223,3 +223,97 @@
     @content;
   }
 }
+
+// Kindle Fire mixins
+// via http://publishing-project.rivendellweb.net/using-media-queries-to-handle-hdpi-screens/
+
+@mixin kindle-fire($orientation: all){
+//Model           resolution      PPCM (PPI)  Pixel Ratio
+//Kindle Fire     1024x600        67 (170)    1.0 (notHDPI)
+$deviceMinWidth: 600px;
+$deviceMaxWidth: 1024px;
+
+
+  @if ($orientation == all) {
+  @media only screen 
+    and (min-device-width: $deviceMinWidth)
+    and (max-device-width: $deviceMaxWidth) {
+
+    @content;
+    }
+  }
+
+  @else {
+  @media only screen 
+    and (min-device-width: $deviceMinWidth)
+    and (max-device-width: $deviceMaxWidth)
+    and (orientation:#{$orientation}) {
+    @content;
+    }
+  }
+
+}
+
+@mixin kindlef-fire7in($orientation:all){
+//                     resolution      PPCM (PPI)  Pixel Ratio
+//Kindle Fire HD 7"    1280x800        85 (216)    1.5 hdpi
+//Kindle Fire HDX 7"   1920x1200       127 (323)   1.5 xhdpi
+$deviceMinWidth: 800px;
+$deviceMaxWidth: 1200px;
+$devicePixelRatio: 1.5;
+
+  @if ($orientation == all)   {
+    @media only screen and (min-device-width: $deviceMinWidth)
+      and (max-device-width: $deviceMaxWidth)
+      and (-webkit-device-pixel-ratio: $devicePixelRatio) {
+
+      @content;
+    }
+  }
+  @else   {
+    @media only screen and (min-device-width: $deviceMinWidth)
+      and (max-device-width: $deviceMaxWidth)
+      and (-webkit-device-pixel-ratio: $devicePixelRatio)
+      and (orientation:#{$orientation}) {
+
+      @content;
+    }
+  }
+}
+
+@mixin kindle-fire89in($orientation:all) {
+//Model                   resolution  PPCM (PPI)  Pixel Ratio
+//Kindle Fire HD 8.9"     1920x1200   100 (254)   1.5 hdpi
+//Kindle Fire HDX 8.9"    2560x1600   133 (339)   1.5 xhdpi
+$deviceMinWidth: 1200px;
+$deviceMaxWidth: 1600px;
+$deviceAspectRatio: '40/71';
+$devicePixelRatio: 1.5;
+
+  @if ($orientation == all)   {
+    @media only screen and (min-device-width: $deviceMinWidth)
+      and (max-device-width: $deviceMaxWidth)
+      and (-webkit-device-pixel-ratio: $devicePixelRatio) {
+
+      @content;
+    }
+  }
+  @else   {
+    @media only screen and (min-device-width: $deviceMinWidth)
+      and (max-device-width: $deviceMaxWidth)
+      and (-webkit-device-pixel-ratio: $devicePixelRatio)
+      and (orientation:#{$orientation}) {
+
+      @content;
+    }
+  }
+}
+
+@mixin kindlehdx {
+  @media only screen and 
+         (min-width:2560px) and
+         (-webkit-max-device-pixel-ratio: 1) and 
+         (min-resolution: 339dpi) {
+           @content;
+  }
+}

@@ -151,6 +151,7 @@ $georgia-font-stack: Georgia, Times, "Times New Roman", serif !default
 
 $size: 1.8rem
 $big:  2.5rem
+$huge: 4.5rem
 
 $red:  #AC071B
 $dred: #890717
@@ -176,6 +177,8 @@ body
 .container
   margin: 0 auto
   width: 320px
+  @include min-screen(300px)
+    width: 300px
   @include iphone4(portrait)
     width: 300px
   @include iphone5(portrait)
@@ -190,6 +193,8 @@ body
     width: 600px
   @include ipad
     width: 800px
+  @include kindlehdx
+    width: 80%
 
 h1
   +font(medium)
@@ -198,7 +203,7 @@ h2
   margin: 0 0 2.5em
   +font(bold)
   width: 60%
-  @include iphone5(portrait)
+  @include max-screen(420px)
     width: 100%
   @include min-screen(767px)
     margin-bottom: 4em
@@ -218,6 +223,8 @@ h2
       margin-bottom: 3.5em
     @include min-screen(767px)
       font-size: $big
+    @include kindlehdx
+      font-size: $huge
 
 h3
   +font(medium)
@@ -232,6 +239,8 @@ p
   line-height: 1.5em
   @include min-screen(767px)
     font-size: $big
+  @include kindlehdx
+    font-size: $huge
 
 a, a:hover
   color: #000
@@ -256,10 +265,14 @@ header
       font-size: $size
       @include min-screen(767px)
         font-size: $big
+      @include kindlehdx
+        font-size: $huge  
       &:hover
         color: $dred
     @include min-screen(767px)
       font-size: $big
+    @include kindlehdx
+      font-size: $huge
   p
     +font(medium)
     color: $gr
@@ -269,14 +282,18 @@ header
     line-height: 1.3em
     @include min-screen(767px)
       font-size: $big
+    @include kindlehdx
+      font-size: $huge
 
 nav
-  margin-bottom: 8em
+  margin-bottom: 7.5em
   @include min-screen(767px)
     margin-bottom: 12em
   ul
     +navigation-list
     letter-spacing: -0.5px
+    li
+      line-height: 3rem
   a
     @include font(medium)
     color: $gr
@@ -286,7 +303,8 @@ nav
     font-size: $size
     @include min-screen(767px)
       font-size: $big
-    //+transition(color 0.5s ease-in-out)
+    @include kindlehdx
+      font-size: $huge
     .left-arrow
       width: 26px
       height: 11px
@@ -324,6 +342,8 @@ svg.left-arrow
   top: 0.15em
   @include min-screen(767px)
     font-size: $big - 0.5rem
+  @include kindlehdx
+    font-size: $huge - 1.25rem
 
 footer#footer
   width: 100%
