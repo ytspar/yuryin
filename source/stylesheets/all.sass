@@ -149,9 +149,10 @@ input, select
 
 $georgia-font-stack: Georgia, Times, "Times New Roman", serif !default
 
-$size: 1.8rem
-$big:  2.5rem
-$huge: 4.5rem
+$small: 1.6rem
+$size:  1.8rem
+$big:   2.5rem
+$huge:  4.5rem
 
 $red:  #AC071B
 $dred: #890717
@@ -239,10 +240,12 @@ p
   font-size: $size
   margin-bottom: 1.5em
   line-height: 1.5em
+  @include max-screen(768px)
+    font-size: $small
   @include min-screen(767px)
     font-size: $big
   @include iphone6-plus
-    font-size: $size + 0.15rem
+    font-size: $size
   @include kindlehdx
     font-size: $huge
 
@@ -377,6 +380,15 @@ footer#footer
           width: 10em
         &.copyright
           width: 23em
+      @include iphone6-plus
+        &.email
+          width: 6em
+        &.twitter
+          width: 8em
+        &.instagram
+          width: 10em   
+        &.copyright
+          width: 16em  
       @include min-screen(767px)
         &.email
           width: 8em
@@ -392,6 +404,10 @@ footer#footer
     +font(medium)
     font-size: 1.6rem
     margin-bottom: 0
+    @include max-screen(768px)
+      font-size: 1.4rem
+    @include iphone6-plus
+      font-size: $size     
     @include ipad
       font-size: 2.0rem
     @include min-screen(767px)
