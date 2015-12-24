@@ -1,5 +1,15 @@
 @import "base/media-queries"
 
+$small: 1.6rem
+$size:  1.8rem
+$big:   2.5rem
+$huge:  4.5rem
+
+$red:  #AC071B
+$dred: #890717
+$gr:   #343434
+$lt:   #CAC8C8
+
 html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video
   margin: 0
   padding: 0
@@ -64,7 +74,7 @@ hr
   display: block
   height: 1px
   border: 0
-  border-top: 3px solid #000
+  border-top: 3px solid $gr
   margin: 1em 0
   padding: 0
 
@@ -149,16 +159,6 @@ input, select
 
 $georgia-font-stack: Georgia, Times, "Times New Roman", serif !default
 
-$small: 1.6rem
-$size:  1.8rem
-$big:   2.5rem
-$huge:  4.5rem
-
-$red:  #AC071B
-$dred: #890717
-$gr:   #343434
-$lt:   #CAC8C8
-
 @mixin navigation-list
   list-style-type: none
   padding: 0
@@ -203,34 +203,30 @@ h1
 h2
   margin: 0 0 2.5em
   +font(bold)
-  width: 60%
+  width: 80%
+  color: $gr
+  font-size: $size + 0.1rem
+  &.tag
+    +font(medium)
+    color: $gr
+    margin-bottom: 2rem
   @include max-screen(420px)
     width: 100%
+  @include ipad
+    margin-bottom: 3.5em
   @include min-screen(767px)
-    margin-bottom: 4em       
-  a
-    &:before
-      height: 0.2em
-      background: $dred
-      width: 2em
-      display: block
-      content: ""
-      margin: 0 0 0.6em 0
-      @include min-screen(767px)
-        height: 0.15em
-    color: $gr
-    font-size: $size
-    @include ipad
-      margin-bottom: 3.5em
-    @include min-screen(767px)
-      font-size: $big
-    @include iphone6-plus
-      font-size: $size + 0.15rem         
-    @include kindlehdx
-      font-size: $huge
+    font-size: $big + 0.1rem
+    margin-bottom: 4em
+  @include iphone6-plus
+    font-size: $size + 0.15rem         
+  @include kindlehdx
+    font-size: $huge
+  &.article-title
+    margin-bottom: 2rem
 
 h3
-  +font(medium)
+  @extend h2
+  margin: 0
 
 h4
   +font(thin)
@@ -243,7 +239,7 @@ p
   @include max-screen(768px)
     font-size: $small
   @include min-screen(767px)
-    font-size: $big
+    font-size: $big - 0.25rem
   @include iphone6-plus
     font-size: $size
   @include kindlehdx
@@ -307,6 +303,14 @@ nav
     letter-spacing: -0.5px
     li
       line-height: 3rem
+      &.active a
+        color: #000
+        letter-spacing: -0.5px
+        //color: $dred
+      &.articles-link.active
+        svg
+          display: none
+
   a
     @include font(medium)
     color: $gr
@@ -331,6 +335,13 @@ nav
     &:hover
       svg path
         fill: $dred
+
+ul.articles-list
+  +navigation-list
+  margin-bottom: 1rem
+  li
+    margin-bottom: 2rem
+    width: 100%
 
 #main
   margin-bottom: 30em
