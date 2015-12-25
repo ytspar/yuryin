@@ -17,7 +17,7 @@
     /[if lt IE 9]
       <script src="javascripts/vendor/html5-3.6-respond-1.4.2.min.js"></script> 
 
-    %title= current_page.data.title ? "yt → " + current_page.data.title : "→ yury in " + @location
+    %title= current_page.data.title ? "yt → " + current_page.data.title : "→ Yury in " + @location
 
     = feed_tag :atom, "#{blog.options.prefix.to_s}/feed.xml", title: "Atom Feed"
     = stylesheet_link_tag "all"
@@ -39,10 +39,6 @@
             %ul
               %li.articles-link{ nav_active('index.html') }
                 =link_to '/' do
-                  %svg.left-arrow
-                    %symbol#icon-arrow-left{:viewBox => "0 0 1024 1024"}
-                      %title arrow-left
-                      %path.path1{:d => "M402.746 877.254l-320-320c-24.994-24.992-24.994-65.516 0-90.51l320-320c24.994-24.992 65.516-24.992 90.51 0 24.994 24.994 24.994 65.516 0 90.51l-210.746 210.746h613.49c35.346 0 64 28.654 64 64s-28.654 64-64 64h-613.49l210.746 210.746c12.496 12.496 18.744 28.876 18.744 45.254s-6.248 32.758-18.744 45.254c-24.994 24.994-65.516 24.994-90.51 0z"}
                   %svg.icon.icon-arrow-left
                     %use{"xlink:href" => "#icon-arrow-left"}
                   Articles
@@ -62,24 +58,30 @@
             %li.email
               %p.label
                 Email
-              %p
+              %p.link
                 %a{:href => "mailto:ytspar@gmail.com"}
                   gmail
             %li.twitter
               %p.label
                 Twitter
-              %p
+              %p.link
                 =link_to '@ytspar', 'https://twitter.com/ytspar'
             %li.instagram
               %p.label
                 Instagram
-              %p
+              %p.link
                 =link_to '@ytspar', 'http://instagram.com/_u/ytspar'
             %li.github
               %p.label
                 Github
-              %p
-                =link_to 'ytspar', 'https://github.com/ytspar/'                
+              %p.link
+                %a{:href => "https://github.com/ytspar/"}
+                  :escaped
+                    /ytspar
+                %a{:href => "https://github.com/ytspar/yuryin"}
+                  :escaped
+                    /yuryin
+ 
           %hr
           %ul.bottom
             %li.copyright
@@ -89,15 +91,6 @@
               %p
                 Yury Tsukerman
 
-      //%aside
-      //  %h2 Recent Articles
-      //  %ol
-      //    - blog.articles[0...10].each do |article|
-      //      %li
-      //        = link_to article.title, article
-      //        %span= article.date.strftime('%b %e')
-
-
     / Google Analytics
     :javascript
       (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
@@ -106,3 +99,9 @@
       e.src='//www.google-analytics.com/analytics.js';
       r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
       ga('create','UA-54570693-1','auto');ga('send','pageview');
+
+    %svg.left-arrow(role="menu" aria-labelledby="title desc")
+      %symbol#icon-arrow-left{:viewBox => "0 0 1024 1024"}
+        %title arrow-left
+        %desc ←
+        %path.path1{:d => "M402.746 877.254l-320-320c-24.994-24.992-24.994-65.516 0-90.51l320-320c24.994-24.992 65.516-24.992 90.51 0 24.994 24.994 24.994 65.516 0 90.51l-210.746 210.746h613.49c35.346 0 64 28.654 64 64s-28.654 64-64 64h-613.49l210.746 210.746c12.496 12.496 18.744 28.876 18.744 45.254s-6.248 32.758-18.744 45.254c-24.994 24.994-65.516 24.994-90.51 0z"} 

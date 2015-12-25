@@ -5,7 +5,7 @@
 # Time.zone = "UTC"
 
 # Current location
-@location = "bangkok"
+@location = "Bangkok"
 set :location, @location
 
 activate :blog do |blog|

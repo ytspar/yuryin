@@ -292,6 +292,8 @@ header
       font-size: $size + 0.15rem          
     @include kindlehdx
       font-size: $huge
+  .location
+    text-transform: lowercase
 
 nav
   margin-bottom: 7.5em
@@ -323,17 +325,6 @@ nav
       font-size: $size + 0.15rem     
     @include kindlehdx
       font-size: $huge
-    .left-arrow
-      width: 26px
-      height: 11px
-      float: left
-    svg
-      margin-right: 0.25em
-      height: inherit
-      width: inherit
-    &:hover
-      svg path
-        fill: $dred
 
 ul.articles-list
   +navigation-list
@@ -365,10 +356,15 @@ svg.left-arrow
   display: inline-block
   position: relative
   top: 0.15em
+  margin-right: 0.25em
   @include min-screen(767px)
     font-size: $big - 0.5rem
   @include kindlehdx
     font-size: $huge - 1.25rem
+
+.articles-link a svg:hover, .articles-link a:hover
+  svg
+    fill: $dred
 
 footer#footer
   width: 100%
@@ -376,15 +372,17 @@ footer#footer
   ul
     +navigation-list
     li
-      margin-right: 3em
+      margin-right: 2em
       &.email
-        width: 5em
+        width: 4em
       &.twitter
         width: 6em
       &.instagram
-        width: 8em  
+        width: 7em  
+      &.github
+        width: 10em          
       &.copyright
-        width: 14em
+        width: 12em
       @include ipad
         &.email, &.twitter
           width: 10em
@@ -396,18 +394,22 @@ footer#footer
         &.twitter
           width: 8em
         &.instagram
-          width: 10em   
+          width: 9em   
+        &.github
+          width: 13em  
         &.copyright
-          width: 17em  
+          width: 16em  
       @include min-screen(767px)
         &.email
           width: 8em
         &.twitter
           width: 10em
         &.instagram
-          width: 12em   
+          width: 12em  
+        &.github
+          width: 16em   
         &.copyright
-          width: 21em  
+          width: 20em  
     &.bottom li
       margin-bottom: 2em
   p
@@ -425,3 +427,8 @@ footer#footer
     &.label
       text-transform: lowercase
       color: $lt
+    &.link
+      a
+        display: inline
+        &:not(:first-child)
+          margin-left: -0.4rem
