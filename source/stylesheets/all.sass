@@ -334,7 +334,7 @@ ul.articles-list
     width: 100%
 
 #main
-  margin-bottom: 30em
+  margin-bottom: 125%
 
 .row
   float: left
@@ -368,7 +368,6 @@ svg.left-arrow
 
 footer#footer
   width: 100%
-  +sticky-footer(5em)
   ul
     +navigation-list
     li
@@ -411,7 +410,13 @@ footer#footer
         &.copyright
           width: 20em  
     &.bottom li
+      margin-top: 1em
       margin-bottom: 2em
+      @include min-screen(767px)
+        margin-top: 2em
+      &.copyright
+        color: $lt
+
   p
     +font(medium)
     font-size: 1.6rem

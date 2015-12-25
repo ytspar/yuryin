@@ -82,14 +82,14 @@
                   :escaped
                     /yuryin
  
-          %hr
+          //%hr
           %ul.bottom
             %li.copyright
               %p
                 Copyright #{DateTime.now.strftime("%Y")}
-            %li.yurytsukerman
+            %li.name{ nav_active('about/index.html') } 
               %p
-                Yury Tsukerman
+                =link_to 'Yury Tsukerman', '/about'
 
     / Google Analytics
     :javascript
