@@ -19,6 +19,15 @@ group :development do
 end
 
 ### Build
+
+# needs
+# bundle config build.libv8 --with-system-v8
+# on my system 
+gem "therubyracer" # faster JS compiles
+gem "oj" # faster JS compiles
+
+gem "middleman-imageoptim"
+
 gem "middleman-smusher"
 gem "mime-types"
 gem "middleman-s3_sync"
