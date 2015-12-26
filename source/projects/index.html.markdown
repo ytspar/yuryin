@@ -30,3 +30,6 @@ Open source Rails-oriented tool for setting up metered billing and other complex
 
 ## [VampireAds](https://github.com/CarouselSMS/VampireAds)
 Open-sourced text to screen SMS application. We used to "projection bombing" with it. [github.com/CarouselSMS/VampireAds](https://github.com/CarouselSMS/VampireAds)
+
+## A bunch of client things
+I helped others get things shipped.
