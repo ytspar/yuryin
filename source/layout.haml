@@ -17,7 +17,7 @@
     /[if lt IE 9]
       <script src="javascripts/vendor/html5-3.6-respond-1.4.2.min.js"></script> 
 
-    %title= current_page.data.title ? "yt → " + current_page.data.title : "→ Yury in " + @location
+    %title= current_page.data.title ? "yt → " + current_page.data.title : "Yury in ✈ " + @location
 
     = feed_tag :atom, "#{blog.options.prefix.to_s}/feed.xml", title: "Atom Feed"
     = stylesheet_link_tag "all"
