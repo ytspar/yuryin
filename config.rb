@@ -76,7 +76,11 @@ activate :automatic_image_sizes
 # activate :livereload
 
 # Obfuscate emails (https://github.com/amsardesai/middleman-protect-emails)
-activate :protect_emails
+# activate :protect_emails
+
+# This errors out without UTF encoding,
+# incompatible encoding regexp match (Windows-31J regexp with UTF-8 string)
+
 
 # Methods defined in the helpers block are available in templates
 helpers do
@@ -138,5 +142,32 @@ configure :build do
 
   # Or use a different image path
   # set :http_prefix, "/Content/images/"
+
+configure :development do
+  set :debug_assets, true
+end
+
+# Load a YML config file with constants.
+# An aws.yml.example file is provided.
+
+ignore 'aws.yml'
+aws_config = YAML::load(File.open('aws.yml'))
+
+activate :s3_sync do |s3_sync|
+  s3_sync.bucket                = aws_config['s3_bucket']
+  s3_sync.region                = aws_config['aws_region']
+  s3_sync.aws_access_key_id     = aws_config['access_key_id']
+  s3_sync.aws_secret_access_key = aws_config['secret_access_key']
+  s3_sync.delete                = true
+  s3_sync.after_build           = false
+end
+
+# activate :cloudfront do |cf|
+#  cf.access_key_id              = aws_config['access_key_id']
+#  cf.secret_access_key          = aws_config['secret_access_key']
+#  cf.distribution_id            = aws_config['cloud_front_dist_id']
+#  cf.filter                     = /(.html|.xml)/
+#  cf.after_build                = false
+# end
 
 end
