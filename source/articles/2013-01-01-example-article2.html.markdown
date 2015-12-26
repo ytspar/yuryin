@@ -2,6 +2,7 @@
 title: A full title for the second demo article
 date: 2013-01-01
 tags: chapter two
+location: Bangkok
 ---
 
 CHAPTER ONE - Lucius Domitius and Appius Claudius being consuls, Caesar, when departing from his winter quarters into Italy, as he had been accustomed to do yearly, commands the lieutenants whom he appointed over the legions to take care that during the winter as many ships as possible should be built, and the old repaired. He plans the size and shape of them. For dispatch of lading, and for drawing them on shore, he makes them a little lower than those which we have been accustomed to use in our sea; and that so much the more, because he knew that, on account of the frequent changes of the tide, less swells occurred there; for the purpose of transporting burdens and a great number of horses, [he makes them] a little broader than those which we use in other seas.
