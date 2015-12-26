@@ -246,11 +246,6 @@ p
     font-size: $size
   @include kindlehdx
     font-size: $huge
-  a
-    +font(medium)
-    letter-spacing: -0.5px
-    margin: 0 0.5rem 0 0
-    font-size: 92.5%
 
 a, a:hover
   color: #000
@@ -379,9 +374,24 @@ body.page
     display: none
     margin-top: 0
   h2
-    margin-bottom: 1rem
+    margin-bottom: 0.55rem
+    font-size: $size - 0.2rem
+    @include min-screen(767px)
+      font-size: $big - 0.2rem
   p + h2
-    margin-top: 4.5rem
+    margin-top: 3rem
+    @include min-screen(767px)
+      margin-top: 5rem
+  p
+    a
+      +font(medium)
+      letter-spacing: -0.5px
+      margin: 0 0.5rem 0 0
+      font-size: 0.9em
+  nav
+    margin-bottom: 6em
+    @include min-screen(767px)
+      margin-bottom: 11em
 
 footer#footer
   width: 100%
@@ -447,4 +457,4 @@ footer#footer
       a
         display: inline
         &:not(:first-child)
-          margin-left: -0.4rem
+          margin-left: -0.5em
