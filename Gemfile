@@ -2,8 +2,8 @@
 # the following line to use "https"
 source 'http://rubygems.org'
 
-gem "middleman", "~> 3.3.12"
-gem "middleman-blog", "~> 3.5.3"
+gem "middleman"
+gem "middleman-blog"
 gem 'middleman-protect-emails'
 gem "middleman-favicon-maker"
 
@@ -17,3 +17,9 @@ gem "builder", "~> 3.0"
 group :development do
   gem 'middleman-livereload'
 end
+
+### Build
+gem "middleman-smusher"
+gem "middleman-s3_sync"
+gem "middleman-minify-html"
+#gem "middleman-cloudfront"
