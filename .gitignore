@@ -19,3 +19,13 @@
 
 # Notes
 _scratchpad.*
+
+bin/
+tmp/
+.bundle/
+
+# Ignore config files with sensitive data
+aws.yml
+.s3_sync
+.env*
+

@@ -212,4 +212,5 @@ DEPENDENCIES
   middleman-protect-emails
   middleman-s3_sync
   middleman-smusher
+  mime-types
   neat

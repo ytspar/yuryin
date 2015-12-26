@@ -20,6 +20,7 @@ end
 
 ### Build
 gem "middleman-smusher"
+gem "mime-types"
 gem "middleman-s3_sync"
 gem "middleman-minify-html"
 #gem "middleman-cloudfront"
