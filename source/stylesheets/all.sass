@@ -385,9 +385,15 @@ body.page
   p
     a
       +font(medium)
+      color: $gr
       letter-spacing: -0.5px
-      margin: 0 0.5rem 0 0
       font-size: 0.9em
+      &:hover
+        color: $dred
+      &:last-child
+        margin: 0 0.5rem 0 0
+      &:first-child
+        margin: 0
   nav
     margin-bottom: 6em
     @include min-screen(767px)
