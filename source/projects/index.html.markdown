@@ -28,6 +28,12 @@ Open-sourced our street sweeping reminder tool. Used to run this in Columbus, Oh
 ## [Clinic](http://https://github.com/CarouselSMS/Clinic)
 Open-sourced proof of concept for nurses and doctors to anonymously communicate with potential patients. The patient would send in a text, while the nurse would communicate from a web-based chat UI. [github.com/CarouselSMS/Clinic](https://github.com/CarouselSMS/Clinic)
 
+## [sms-toolkit](https://github.com/CarouselSMS/sms-toolkit)
+Phone number normalization and formatting for SMS delivery. [github.com/CarouselSMS/sms-toolkit](https://github.com/CarouselSMS/sms-toolkit)
+
+## [NPA (Number Planning Area)](https://github.com/CarouselSMS/npa)
+Numbering Plan Area assignments for NANP (North American Numbering Plan). [github.com/CarouselSMS/npa](https://github.com/CarouselSMS/npa)
+
 ## [perfect_price](https://github.com/CarouselSMS/perfect_price)
 Open source Rails-oriented tool for setting up metered billing and other complex pricing mechanisms. [github.com/CarouselSMS/perfect_price](https://github.com/CarouselSMS/perfect_price)
 
@@ -37,8 +43,8 @@ Open-sourced text to screen SMS application. We used to "projection bombing" wit
 ## [Autoemail](https://github.com/CarouselSMS/Autoemail)
 Automatically sends users an email and SMS when they text in their email address. [github.com/CarouselSMS/Autoemail](https://github.com/CarouselSMS/Autoemail)
 
-## Various
-A static corporate site for [Recess Mobile](https://github.com/CarouselSMS/RecessMobile.com), 
+## Recess Mobile static site
+A static corporate site for [Recess Mobile](https://github.com/CarouselSMS/RecessMobile.com).
 
 ## A bunch of client things
 I helped others get things shipped.
