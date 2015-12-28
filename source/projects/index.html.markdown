@@ -19,6 +19,9 @@ Sad travel pictures. Needs some work; currently more lame than sad. [sadtravel.c
 ## [Recess paging system](http://RecessApp.com)
 Open-sourced the web piece (Rails 2.3.4, and that's upgraded) of our SMS-enabled paging system - a restaurant, doctor's office, whoever, would send you a reminder when, say, your table was ready. No more queuing! [recessapp.com](http://RecessApp.com)
 
+## [RocketSMS](https://github.com/CarouselSMS/rocket_sms)
+SMS gateway based on Ruby-SMPP. [github.com/CarouselSMS/rocket_sms](https://github.com/CarouselSMS/rocket_sms)
+
 ## [AntiTow](http://antitow.com)
 Open-sourced our street sweeping reminder tool. Used to run this in Columbus, Ohio and on behalf of the City of Chicago, as a free service. Consists of two pieces, the Rails admin side, with a calendar-based scheduler that integrates with our SMS API, and the Wordpress customer-facing piece. [AntiTow.com](http://antitow.com)
 
@@ -30,6 +33,12 @@ Open source Rails-oriented tool for setting up metered billing and other complex
 
 ## [VampireAds](https://github.com/CarouselSMS/VampireAds)
 Open-sourced text to screen SMS application. We used to "projection bombing" with it. [github.com/CarouselSMS/VampireAds](https://github.com/CarouselSMS/VampireAds)
+
+## [Autoemail](https://github.com/CarouselSMS/Autoemail)
+Automatically sends users an email and SMS when they text in their email address. [github.com/CarouselSMS/Autoemail](https://github.com/CarouselSMS/Autoemail)
+
+## Various
+A static corporate site for [Recess Mobile](https://github.com/CarouselSMS/RecessMobile.com), 
 
 ## A bunch of client things
 I helped others get things shipped.
