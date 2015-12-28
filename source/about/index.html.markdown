@@ -4,6 +4,4 @@ tags: about
 bodyclass: page
 ---
 
-:markdown
-
-  A bit about me
+Filler.
