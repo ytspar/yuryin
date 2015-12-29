@@ -46,5 +46,5 @@ Automatically sends users an email and SMS when they text in their email address
 ## Recess Mobile static site
 A static corporate site for [Recess Mobile](https://github.com/CarouselSMS/RecessMobile.com).
 
-## A bunch of client things
+## Client projects
 I helped others get things shipped.
