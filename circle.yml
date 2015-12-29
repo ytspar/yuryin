@@ -17,7 +17,7 @@ deployment:
       - bundle exec middleman build --verbose
       
       # Push Middleman build to your AWS S3 bucket
-      - bundle exec middleman s3_sync --bucket=middleman-sandbox-production
+      - bundle exec middleman s3_sync --bucket=yury.in
 
       # Invalidate cache in AWS Cloudfront
       #- PRODUCTION_CLOUDFRONT_DISTRIBUTION_ID= bundle exec middleman invalidate
