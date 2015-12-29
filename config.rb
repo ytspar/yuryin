@@ -174,6 +174,12 @@ activate :s3_sync do |s3_sync|
   #s3_sync.after_build           = true # We do not chain after the build step by default.
 end
 
+caching_policy 'text/html', cache_control: {max_age: 7200, must_revalidate: true}, content_encoding: 'gzip'
+caching_policy 'image/png', cache_control: {max_age: 31536000, public: true}, content_encoding: 'gzip'
+caching_policy 'image/jpeg', cache_control: {max_age: 31536000, public: true}, content_encoding: 'gzip'
+caching_policy 'text/css', cache_control: {max_age: 31536000, public: true}, content_encoding: 'gzip'
+caching_policy 'application/javascript', cache_control: {max_age: 31536000, public: true}, content_encoding: 'gzip'
+
 activate :cloudfront do |cf|
   cf.access_key_id                   = ENV['AWS_ACCESS_KEY_ID']
   cf.secret_access_key               = ENV['AWS_SECRET_KEY']
