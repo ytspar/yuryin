@@ -20,6 +20,6 @@ deployment:
       - bundle exec middleman s3_sync
 
       # Invalidate cache in AWS Cloudfront
-      - PRODUCTION_CLOUDFRONT_DISTRIBUTION_ID=ENV['PRODUCTION_CLOUDFRONT_DISTRIBUTION_ID'] bundle exec middleman invalidate
+      - PRODUCTION_CLOUDFRONT_DISTRIBUTION_ID=E3VABRYJGKDWZA bundle exec middleman invalidate
 
 
