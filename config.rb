@@ -179,7 +179,7 @@ activate :cloudfront do |cf|
   cf.secret_access_key               = ENV['AWS_SECRET_KEY']
   cf.distribution_id                 = ENV['PRODUCTION_CLOUDFRONT_DISTRIBUTION_ID']
   cf.filter                          = /\.html$/i
-  #cf.after_build                     = false  # default is false
+  cf.after_build                     = false  # default is false
 end
 
 #after_s3_sync do |files_by_status|
