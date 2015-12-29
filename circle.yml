@@ -1,3 +1,12 @@
+dependencies:
+  pre:
+    - bundle install
+
+# To speed things up, you can also cache directories.  Uncomment this and replace this with code above.
+# dependencies:
+#   cache_directories:
+#     - "~/.rvm/gems/ruby-2.0.0-p451"
+
 machine:
   ruby:
     version: 2.1.2
@@ -5,4 +14,12 @@ deployment:
   production:
     branch: master
     commands:
-      - bundle exec middleman s3_sync
+      - bundle exec middleman build --verbose
+      
+      # Push Middleman build to your AWS S3 bucket
+       - bundle exec middleman s3_sync --bucket=middleman-sandbox-production
+
+      # Invalidate cache in AWS Cloudfront
+      #- PRODUCTION_CLOUDFRONT_DISTRIBUTION_ID= bundle exec middleman invalidate
+
+

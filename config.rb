@@ -159,21 +159,29 @@ end
 ignore 'aws.yml'
 #aws_config = YAML::load(File.open('aws.yml'))
 
+# config via https://github.com/monsoonco/Middleman-AWS-Prismic-CircleCi
+
 activate :s3_sync do |s3_sync|
-  #s3_sync.bucket                = aws_config['s3_bucket']
-  #s3_sync.region                = aws_config['aws_region']
-  s3_sync.aws_access_key_id     = ENV['AWS_ACCESS_KEY_ID']
-  s3_sync.aws_secret_access_key = ENV['AWS_SECRET_ACCESS_KEY']
-  s3_sync.delete                = true
-  s3_sync.after_build           = false
+  s3_sync.bucket                     = ENV['AWS_S3_BUCKET_NAME']
+  # The AWS region code for your bucket.
+  # For region codes: http://www.bucketexplorer.com/documentation/amazon-s3--amazon-s3-buckets-and-regions.html
+  s3_sync.region                     = ENV['AWS_REGION']
+  s3_sync.aws_access_key_id          = ENV['AWS_ACCESS_KEY_ID']
+  s3_sync.aws_secret_access_key      = ENV['AWS_SECRET_KEY']
+  #s3_sync.delete                = true # We delete stray files by default.
+  #s3_sync.after_build           = true # We do not chain after the build step by default.
 end
 
-# activate :cloudfront do |cf|
-#  cf.access_key_id              = aws_config['access_key_id']
-#  cf.secret_access_key          = aws_config['secret_access_key']
-#  cf.distribution_id            = aws_config['cloud_front_dist_id']
-#  cf.filter                     = /(.html|.xml)/
-#  cf.after_build                = false
-# end
+activate :cloudfront do |cf|
+  cf.access_key_id                   = ENV['AWS_ACCESS_KEY_ID']
+  cf.secret_access_key               = ENV['AWS_SECRET_KEY']
+  cf.distribution_id                 = ENV['PRODUCTION_CLOUDFRONT_DISTRIBUTION_ID']
+  cf.filter                          = /\.html$/i
+  #cf.after_build                     = false  # default is false
+end
+
+after_s3_sync do |files_by_status|
+  invalidate files_by_status[:updated]
+end
 
 end
