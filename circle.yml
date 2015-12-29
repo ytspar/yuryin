@@ -20,6 +20,6 @@ deployment:
       - bundle exec middleman s3_sync
 
       # Invalidate cache in AWS Cloudfront
-      bundle exec middleman invalidate
+      - bundle exec middleman invalidate
 
 
