@@ -157,13 +157,13 @@ end
 # An aws.yml.example file is provided.
 
 ignore 'aws.yml'
-aws_config = YAML::load(File.open('aws.yml'))
+#aws_config = YAML::load(File.open('aws.yml'))
 
 activate :s3_sync do |s3_sync|
-  s3_sync.bucket                = aws_config['s3_bucket']
-  s3_sync.region                = aws_config['aws_region']
-  s3_sync.aws_access_key_id     = aws_config['access_key_id']
-  s3_sync.aws_secret_access_key = aws_config['secret_access_key']
+  #s3_sync.bucket                = aws_config['s3_bucket']
+  #s3_sync.region                = aws_config['aws_region']
+  s3_sync.aws_access_key_id     = ENV['AWS_ACCESS_KEY_ID']
+  s3_sync.aws_secret_access_key = ENV['AWS_SECRET_ACCESS_KEY']
   s3_sync.delete                = true
   s3_sync.after_build           = false
 end
