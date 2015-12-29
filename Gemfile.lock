@@ -254,6 +254,7 @@ GEM
     neat (1.7.2)
       bourbon (>= 4.0)
       sass (>= 3.3)
+    net-ssh (2.9.2)
     nokogiri (1.6.7.1)
       mini_portile2 (~> 2.0.0.rc2)
     oj (2.14.2)
@@ -328,5 +329,6 @@ DEPENDENCIES
   middleman-smusher
   mime-types
   neat
+  net-ssh
   oj
   therubyracer

@@ -33,3 +33,5 @@ gem "mime-types"
 gem "middleman-s3_sync"
 gem "middleman-minify-html"
 gem "middleman-cloudfront"
+
+gem "net-ssh"
