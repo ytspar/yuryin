@@ -182,8 +182,8 @@ activate :cloudfront do |cf|
   #cf.after_build                     = false  # default is false
 end
 
-after_s3_sync do |files_by_status|
-  invalidate files_by_status[:updated]
-end
+#after_s3_sync do |files_by_status|
+#  invalidate files_by_status[:updated]
+#end
 
 end
