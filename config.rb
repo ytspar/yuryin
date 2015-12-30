@@ -7,7 +7,8 @@
 # Current location
 # Location history
 ## Bangkok
-@location = "Chiang Mai"
+## Chiang Mai
+@location = "Lamphun"
 set :location, @location
 
 activate :blog do |blog|
@@ -171,7 +172,7 @@ activate :s3_sync do |s3_sync|
   s3_sync.aws_access_key_id          = ENV['AWS_ACCESS_KEY_ID']
   s3_sync.aws_secret_access_key      = ENV['AWS_SECRET_KEY']
   #s3_sync.delete                = true # We delete stray files by default.
-  #s3_sync.after_build           = true # We do not chain after the build step by default.
+  s3_sync.after_build           = true # We do not chain after the build step by default.
 end
 
 caching_policy 'text/html', cache_control: {max_age: 7200, must_revalidate: true}, content_encoding: 'gzip'
