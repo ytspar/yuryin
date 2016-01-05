@@ -1,7 +1,7 @@
 @import "base/media-queries"
 
 $small: 1.6rem
-$size:  1.8rem
+$size:  1.95rem
 $big:   2.5rem
 $huge:  4.5rem
 
@@ -204,7 +204,7 @@ h2
   +font(bold)
   width: 80%
   color: $gr
-  font-size: $size + 0.1rem
+  font-size: $size
   &.tag
     +font(medium)
     color: $gr
@@ -215,9 +215,7 @@ h2
     margin-bottom: 3.5em
   @include min-screen(767px)
     font-size: $big + 0.1rem
-    margin-bottom: 4em
-  @include iphone6-plus
-    font-size: $size + 0.15rem         
+    margin-bottom: 4em       
   @include kindlehdx
     font-size: $huge
   &.article-title
@@ -245,8 +243,6 @@ p
     font-size: $small
   @include min-screen(767px)
     font-size: $big - 0.25rem
-  @include iphone6-plus
-    font-size: $size
   @include kindlehdx
     font-size: $huge
 
@@ -261,7 +257,7 @@ header
   text-transform: lowercase
   h1
     @include font(medium)
-    font-size: $size + 0.15rem
+    font-size: $size
     margin-top: 0.5em
     margin-bottom: 0.1em
     letter-spacing: -0.2px
@@ -270,7 +266,7 @@ header
       color: $dred
     span
       color: $red
-      font-size: $size + 0.15rem
+      font-size: $size
       @include min-screen(767px)
         font-size: $big   
       @include kindlehdx
@@ -286,7 +282,7 @@ header
     color: $gr
     margin: 0 0 1em 0
     letter-spacing: -0.25px
-    font-size: $size + 0.15rem
+    font-size: $size
     line-height: 1.3em
     @include min-screen(767px)
       font-size: $big        
@@ -317,11 +313,9 @@ nav
     display: inline-block
     background: none
     margin-right: 1em
-    font-size: $size + 0.15rem
+    font-size: $size
     @include min-screen(767px)
-      font-size: $big
-    @include iphone6-plus
-      font-size: $size + 0.15rem     
+      font-size: $big    
     @include kindlehdx
       font-size: $huge
 
@@ -442,12 +436,10 @@ footer#footer
 
   p
     +font(medium)
-    font-size: 1.6rem
+    font-size: $size     
     margin-bottom: 0
     @include max-screen(768px)
-      font-size: 1.4rem
-    @include iphone6-plus
-      font-size: $size     
+      font-size: 1.4rem 
     @include ipad
       font-size: 2.0rem
     @include min-screen(767px)
@@ -459,4 +451,4 @@ footer#footer
       a
         display: inline
         &:not(:first-child)
-          margin-left: -0.5rem
+          margin-left: -0.35rem
