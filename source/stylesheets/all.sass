@@ -208,7 +208,7 @@ h2
   &.tag
     +font(medium)
     color: $gr
-    margin-bottom: 2rem
+    margin-bottom: 1rem
   @include max-screen(420px)
     width: 100%
   @include ipad
@@ -221,7 +221,10 @@ h2
   @include kindlehdx
     font-size: $huge
   &.article-title
-    margin-bottom: 2rem
+    margin-bottom: 1rem
+  @include min-screen(767px)
+    &.article-title
+      margin-bottom: 2rem
   a
     color: $gr
 
@@ -258,7 +261,7 @@ header
   text-transform: lowercase
   h1
     @include font(medium)
-    font-size: $size
+    font-size: $size + 0.15rem
     margin-top: 0.5em
     margin-bottom: 0.1em
     letter-spacing: -0.2px
@@ -267,19 +270,15 @@ header
       color: $dred
     span
       color: $red
-      font-size: $size
+      font-size: $size + 0.15rem
       @include min-screen(767px)
-        font-size: $big
-      @include iphone6-plus
-        font-size: $size + 0.15rem      
+        font-size: $big   
       @include kindlehdx
         font-size: $huge  
       &:hover
         color: $dred
     @include min-screen(767px)
       font-size: $big
-    @include iphone6-plus
-      font-size: $size + 0.15rem     
     @include kindlehdx
       font-size: $huge      
   p
@@ -287,12 +286,10 @@ header
     color: $gr
     margin: 0 0 1em 0
     letter-spacing: -0.25px
-    font-size: $size
+    font-size: $size + 0.15rem
     line-height: 1.3em
     @include min-screen(767px)
-      font-size: $big
-    @include iphone6-plus
-      font-size: $size + 0.15rem          
+      font-size: $big        
     @include kindlehdx
       font-size: $huge
   .location
@@ -314,14 +311,13 @@ nav
       &.articles-link.active
         svg
           display: none
-
   a
     @include font(medium)
     color: $gr
     display: inline-block
     background: none
     margin-right: 1em
-    font-size: $size
+    font-size: $size + 0.15rem
     @include min-screen(767px)
       font-size: $big
     @include iphone6-plus
