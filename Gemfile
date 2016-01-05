@@ -7,15 +7,17 @@ gem "middleman-blog"
 gem 'middleman-protect-emails'
 gem "middleman-favicon-maker"
 
-gem 'bitters'
-gem 'bourbon'
-gem 'neat'
+gem "middleman-dotenv"
+
+gem "bitters"
+gem "bourbon"
+gem "neat"
 
 # For feed.xml.builder
 gem "builder", "~> 3.0"
 
 group :development do
-  gem 'middleman-livereload'
+  gem "middleman-livereload"
 end
 
 ### Build

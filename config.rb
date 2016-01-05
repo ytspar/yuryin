@@ -8,8 +8,12 @@
 # Location history
 ## Bangkok
 ## Chiang Mai
-@location = "Lamphun"
+## Lamphun
+@location = "Chiang Mai"
 set :location, @location
+
+# Uses .env in the root of the project
+activate :dotenv
 
 activate :blog do |blog|
   # This will add a prefix to all links, template references and source paths
@@ -103,6 +107,8 @@ set :images_dir, 'images'
 # Build-specific configuration
 configure :build do
 
+  activate :dotenv, env: '.env.build'
+
   # Requires middleman-favicon-maker
   activate :favicon_maker, :icons => {
     "_favicon_base.svg" => [
@@ -152,27 +158,38 @@ configure :build do
   # Or use a different image path
   # set :http_prefix, "/Content/images/"
 
+end
+
 configure :development do
+
+  activate :dotenv, env: '.env.dev'
+
   set :debug_assets, true
+
+  compass_config do |config|
+    config.sass_options = {:debug_info => true}
+  end
+
 end
 
 # Load a YML config file with constants.
 # An aws.yml.example file is provided.
 
-ignore 'aws.yml'
+#ignore 'aws.yml'
 #aws_config = YAML::load(File.open('aws.yml'))
 
 # config via https://github.com/monsoonco/Middleman-AWS-Prismic-CircleCi
 
 activate :s3_sync do |s3_sync|
+  # The name of the S3 bucket you are targeting.
   s3_sync.bucket                     = ENV['AWS_S3_BUCKET_NAME']
   # The AWS region code for your bucket.
   # For region codes: http://www.bucketexplorer.com/documentation/amazon-s3--amazon-s3-buckets-and-regions.html
   s3_sync.region                     = ENV['AWS_REGION']
   s3_sync.aws_access_key_id          = ENV['AWS_ACCESS_KEY_ID']
   s3_sync.aws_secret_access_key      = ENV['AWS_SECRET_KEY']
-  #s3_sync.delete                = true # We delete stray files by default.
-  s3_sync.after_build           = true # We do not chain after the build step by default.
+  #s3_sync.delete                     = true # We delete stray files by default.
+  #s3_sync.after_build                = true # We do not chain after the build step by default.
 end
 
 caching_policy 'text/html', cache_control: {max_age: 7200, must_revalidate: true}, content_encoding: 'gzip'
@@ -187,10 +204,10 @@ activate :cloudfront do |cf|
   cf.distribution_id                 = ENV['PRODUCTION_CLOUDFRONT_DISTRIBUTION_ID']
   cf.filter                          = /\.html$/i
   cf.after_build                     = false  # default is false
-end
+end  
+
 
 #after_s3_sync do |files_by_status|
 #  invalidate files_by_status[:updated]
 #end
 
-end
