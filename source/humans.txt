@@ -3,11 +3,11 @@
 
 # TEAM
 
-    <name> -- <role> -- <twitter>
+    Yury Tsukerman -- creator -- @ytspar
 
 # THANKS
 
-    <name>
+    Fam
 
 # TECHNOLOGY COLOPHON
 
