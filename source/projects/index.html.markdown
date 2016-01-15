@@ -47,7 +47,7 @@ Automatically sends users an email and SMS when they text in their email address
 A static corporate site for [Recess Mobile](https://github.com/CarouselSMS/RecessMobile.com).
 
 ## FindHolmes
-Real estate search over SMS, created around 2007. 
+Real estate search over SMS, created around 2007. I'll have to write a blog post about this; it was an interesting one. 
 
 ## Client projects
 I helped others get things shipped.
