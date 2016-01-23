@@ -11,7 +11,8 @@
 ## Lamphun
 ## Chiang Mai
 ## Hong Kong
-@location = "Bangkok"
+## Bangkok
+@location = "Stockholm"
 set :location, @location
 
 # Uses .env in the root of the project
